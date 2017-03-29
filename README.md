@@ -25,6 +25,10 @@ The program takes words beginning with consonants and moves those consonants to 
 Example Input: program
 Example Output: ogrampray
 
+If the program  has its first consonants include "qu", move the "u" along with the "q".
+Example Input: query
+Example Output: eryquay
+
 
 ## Known Bugs
 

@@ -7,6 +7,7 @@ var loopThrough = function(array, completeArray){
     if(checkNum === 1){
       completeArray.push(firstVowel(array[i]));
     } else if(checkNum === 2) {
+      firstConsonant(array[i]);
     }
   }
   console.log(completeArray);
@@ -18,6 +19,25 @@ var checkCharacter = function(element){
   } else {
     return 1;
   }
+}
+//Check "qu"
+var firstConsonant = function(string){
+  if(string.match(/^qu/)!= null ) {
+    var array = string.split("");
+    array.shift();
+    array.shift();
+    array.push("quay");
+    string = array.join("");
+  }
+  // else if(/*one consonant (second index is a vowel)*/) {
+  //
+  // } else {
+  //
+  // }
+
+  console.log(string);
+
+  return string;
 }
 
 //first char is vowel\
