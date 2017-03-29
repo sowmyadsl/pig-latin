@@ -1,29 +1,40 @@
-//checkfor whitespace
+//Business Logic
 
-//check first character
-
-
-//first char is vowel\
-var firstVowel = function(array, vowels) {
-  var length = array.length;
-  for(i=0;i<length;i++){
-    if(array[0] === vowels[i] ){
-      array.push("ay");
+var loopThrough = function(array, completeArray){
+  // var length = array.length;
+  for(var i = 0; i < array.length; i++){
+    checkNum = checkCharacter(array[i]);
+    if(checkNum === 1){
+      completeArray.push(firstVowel(array[i]));
+    } else if(checkNum === 2) {
     }
   }
-  return array;
+  console.log(completeArray);
+}
+//check first character
+var checkCharacter = function(element){
+  if(element.match(/^[aeiou]/) === null){
+    return 2;
+  } else {
+    return 1;
+  }
 }
 
-//first char is consonant
-
-//first char is exception
+//first char is vowel\
+var firstVowel = function(string) {
+  var vowels = ["a","e","i","o","u"]
+  var array = string.split("");
+  if(vowels.includes(array[0])){
+    array.push("way");
+  }
+  string = array.join('');
+  return string;
+}
 
 
 var validateInput = function(array){
   for(i=0;i<array.length;i++){
-    console.log(array[i]);
      array[i] = array[i].match(/[a-z]/g).join("");
-     console.log(array[i]);
   }
  return array;
 }
@@ -38,30 +49,15 @@ $(document).ready(function(){
   $("#pigForm").submit(function(event){
     event.preventDefault();
    var string = $("#inputForm").val().toLowerCase();
-   var vowels = ["a","e","i","o","u"]
+
    var array = string.split(" ");
+   var completeArray = [];
 
-   //spec #1
-   if(array[0].match(/[a-z\s]/gi)===null){
-    console.log("string is invalid");
-    console.log(array[0]);
-   }
-
-validateInput(array);
-  //  var array = string.match(/[a-z\s]/gi)
-
-   //array = firstVowel(array, vowels);
+   validateInput(array);
 
 
-  //  console.log(array.indexOf(/[^aeiou]*/i));
-
-  //  if(/[aeiou]/)
-
-  //  console.log(array[0]);
-  //  console.log(vowels[0]);
-
-// console.log(array);
-
+  //  console.log(element[0]===/[aeiou]/);
+  loopThrough(array, completeArray);
 
  });
- });
+});
